@@ -8,6 +8,5 @@ class WsSidecarEgressApplication
 
 
 fun main(args: Array<String>) {
-    //
     runApplication<WsSidecarEgressApplication>(*args)
 }

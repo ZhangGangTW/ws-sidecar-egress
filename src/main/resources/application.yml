@@ -3,11 +3,11 @@ spring:
     gateway:
       routes:
         - id: ws-sidecar-egress
-          uri: ${USER_SERVICE_URL}
+          uri: ${USER_SERVICE_URL:""}
           predicates:
             - path=/users
           filters:
-            - AddRequestHeader=api-key, ${API_KEY}
+            - AddRequestHeader=api-key, ${API_KEY:""}
 server:
   port: 8088
 

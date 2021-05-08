@@ -1,0 +1,21 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: ws-sidecar-egress
+          uri: ${USER_SERVICE_URL}
+          predicates:
+            - path=/users
+          filters:
+            - AddRequestHeader=api-key, ${API_KEY}
+server:
+  port: 8088
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always

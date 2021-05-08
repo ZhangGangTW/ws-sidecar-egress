@@ -5,7 +5,7 @@ spring:
         - id: ws-sidecar-egress
           uri: ${USER_SERVICE_URL:""}
           predicates:
-            - path=/users
+            - Path=/users/**
           filters:
             - AddRequestHeader=api-key, ${API_KEY:""}
 server:
